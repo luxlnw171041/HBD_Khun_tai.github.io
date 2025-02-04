@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birth Day naja</title>
-    <link rel="stylesheet" href="styles.css">
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,6 +13,11 @@
         rel="stylesheet">
 </head>
 <style>
+    *:not(i) {
+        font-family: "K2D", serif;
+
+    }
+
     body {
         display: flex;
         justify-content: center;
@@ -22,83 +26,243 @@
         /* width: 100dvh; */
         overflow: hidden;
         margin: 0;
-        background-color: #f8f8f8;
+        background-color: #fcfcfc;
+    }
+
+    :root {
+        --vanilla: #f0e4d0;
+        --chocolate: #553c13;
     }
 
     .cake {
-        position: relative;
-        width: 200px;
+        width: 550px;
         height: 200px;
+        position: relative;
+        transition: all .15s ease-in-out;
     }
 
     .plate {
-        width: 250px;
-        height: 20px;
-        background-color: #ccc;
-        border-radius: 10px;
+        width: 520px;
+        height: 110px;
         position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
+        bottom: -10px;
+        left: -10px;
+        background-color: #ccc;
+        border-radius: 50%;
+        box-shadow:
+            0 2px 0 #b3b3b3,
+            0 4px 0 #b3b3b3,
+            0 5px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .cake>* {
+        position: absolute;
     }
 
     .layer {
-        width: 180px;
-        height: 100px;
-        background-color: #f4a460;
-        border-radius: 10px 10px 0 0;
         position: absolute;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
+        display: block;
+        width: 500px;
+        height: 100px;
+        border-radius: 50%;
+        background-color: var(--chocolate);
+        box-shadow:
+            0 2px 0px #5d441a,
+            0 4px 0px #4a3410,
+            0 6px 0px #47320f,
+            0 8px 0px #44300e,
+            0 10px 0px #412e0d,
+            0 12px 0px #3e2c0c,
+            0 14px 0px #3b2a0b,
+            0 16px 0px #38280a,
+            0 18px 0px #352609,
+            0 20px 0px #322408,
+            0 22px 0px #2f2207,
+            0 24px 0px #2c2006,
+            0 26px 0px #291e05,
+            0 28px 0px #261c04,
+            0 30px 0px #231a03;
+    }
+
+    .layer-top {
+        top: 0px;
+    }
+
+    .layer-middle {
+        top: 33px;
+    }
+
+    .layer-bottom {
+        top: 66px;
     }
 
     .icing {
-        width: 180px;
-        height: 20px;
-        background-color: #fff5ee;
-        border-radius: 10px 10px 0 0;
-        position: absolute;
-        bottom: 120px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .candles {
-        position: absolute;
-        bottom: 140px;
-        left: 50%;
-        transform: translateX(-50%);
-        display: flex;
-        justify-content: space-between;
-        width: 150px;
-    }
-
-    .candle {
-        width: 10px;
-        height: 40px;
-        background-color: #ffd700;
+        top: 2px;
+        left: 5px;
+        background-color: var(--vanilla);
+        width: 480px;
+        height: 90px;
+        border-radius: 50%;
         position: relative;
     }
 
-    .candle::before {
-        content: '';
-        width: 15px;
-        height: 15px;
-        background-color: #ff4500;
-        border-radius: 50%;
+    .icing:before {
+        content: "";
         position: absolute;
-        top: -10px;
+        top: 4px;
+        right: 5px;
+        bottom: 6px;
+        width: 480px;
+        left: 5px;
+        background-color: #f3e8d4;
+        box-shadow:
+            0 0 4px #f5ebd8,
+            0 0 4px #f5ebd8,
+            0 0 4px #f5ebd8;
+        border-radius: 50%;
+        z-index: 1;
+    }
+
+    .drip {
+        display: block;
+        width: 50px;
+        height: 60px;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        background-color: var(--vanilla);
+    }
+
+    .drip1 {
+        top: 53px;
+        left: 5px;
+        transform: skewY(15deg);
+        height: 48px;
+        width: 40px;
+    }
+
+    .drip2 {
+        top: 69px;
+        left: 420px;
+        transform: skewY(-15deg);
+    }
+
+    .drip3 {
+        top: 54px;
+        left: 90px;
+        width: 80px;
+        border-bottom-left-radius: 40px;
+        border-bottom-right-radius: 40px;
+    }
+
+    .candle {
+        background-color: #7B020B;
+        width: 16px;
+        height: 50px;
+        border-radius: 8px / 4px;
+        top: -100px;
+        left: 43%;
+        margin-left: -8px;
+        z-index: 10;
+        position: relative;
+    }
+
+    .candle:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 16px;
+        height: 8px;
+        border-radius: 50%;
+        background-color: #8a020c;
+    }
+
+    .wick {
+        width: 1px;
+        height: 10px;
+        background-color: #fff;
+        position: absolute;
+        top: -10%;
         left: 50%;
-        transform: translateX(-50%);
+        transform: translate(-50%, -50%);
+
+    }
+
+    .flame {
+        position: absolute;
+        background-color: orange;
+        width: 15px;
+        height: 35px;
+        border-radius: 10px 10px 10px 10px / 25px 25px 10px 10px;
+        top: -34px;
+        left: 50%;
+        margin-left: -7.5px;
+        z-index: 10;
+        box-shadow:
+            0 0 10px rgba(255, 165, 0, 0.5),
+            0 0 20px rgba(255, 165, 0, 0.5),
+            0 0 60px rgba(255, 165, 0, 0.5),
+            0 0 80px rgba(255, 165, 0, 0.5);
+        transform-origin: 50% 90%;
+        animation: flicker 1s ease-in-out alternate infinite;
+    }
+
+    /* .flame:hover {
+        cursor: url('assets/img/star3.png');
+    } */
+    @keyframes flicker {
+        0% {
+            transform: skewX(5deg);
+            box-shadow:
+                0 0 10px rgba(255, 165, 0, 0.2),
+                0 0 20px rgba(255, 165, 0, 0.2),
+                0 0 60px rgba(255, 165, 0, 0.2),
+                0 0 80px rgba(255, 165, 0, 0.2);
+        }
+
+        25% {
+            transform: skewX(-5deg);
+            box-shadow:
+                0 0 10px rgba(255, 165, 0, 0.5),
+                0 0 20px rgba(255, 165, 0, 0.5),
+                0 0 60px rgba(255, 165, 0, 0.5),
+                0 0 80px rgba(255, 165, 0, 0.5);
+        }
+
+        50% {
+            transform: skewX(10deg);
+            box-shadow:
+                0 0 10px rgba(255, 165, 0, 0.3),
+                0 0 20px rgba(255, 165, 0, 0.3),
+                0 0 60px rgba(255, 165, 0, 0.3),
+                0 0 80px rgba(255, 165, 0, 0.3);
+        }
+
+        75% {
+            transform: skewX(-10deg);
+            box-shadow:
+                0 0 10px rgba(255, 165, 0, 0.4),
+                0 0 20px rgba(255, 165, 0, 0.4),
+                0 0 60px rgba(255, 165, 0, 0.4),
+                0 0 80px rgba(255, 165, 0, 0.4);
+        }
+
+        100% {
+            transform: skewX(5deg);
+            box-shadow:
+                0 0 10px rgba(255, 165, 0, 0.5),
+                0 0 20px rgba(255, 165, 0, 0.5),
+                0 0 60px rgba(255, 165, 0, 0.5),
+                0 0 80px rgba(255, 165, 0, 0.5);
+        }
     }
 
     .happy-birth-day-na {
         font-family: "K2D", serif;
         font-size: 120px;
         font-weight: bolder;
-        background: #CF1998;
-        background: linear-gradient(to right, #CF1998 52%, #872BFF 100%);
+        background: #f87c9e;
+        background: linear-gradient(to right, #f87c9e 20%, #e6bac6 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         line-height: 130px;
@@ -108,18 +272,580 @@
         font-family: "K2D", serif;
 
     }
+
+    .btn {
+        border-radius: 50px !important;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .btn-next {
+        background-color: #f87c9e;
+        color: #fff;
+        cursor: pointer;
+
+    }
+
+    .btn-nope {
+        background-color: #ccc;
+        color: #fff;
+        cursor: pointer;
+        position: absolute;
+        transition: top 0.2s, left 0.2s;
+        z-index: 99;
+    }
+
+    @media(max-width: 700px) {
+        .happy-birth-day-na {
+            font-size: 60px !important;
+            line-height: 60px;
+            margin-right: 0 !important;
+
+        }
+
+        .group-happy-birth-day {
+            margin-right: 0 !important;
+
+        }
+
+
+    }
+
+    .melody-animation {
+        animation-name: melody-animation;
+        animation-duration: .2s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+
+    }
+
+    @keyframes melody-animation {
+
+        0% {
+            transform: translateY(200px);
+            opacity: 0 !important;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+
+    .popcat-animation {
+        animation-name: popcat-animation;
+        animation-duration: .2s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+
+    }
+
+    @keyframes popcat-animation {
+
+        0% {
+            transform: translatex(200px);
+        }
+
+        100% {
+            transform: translatex(0);
+        }
+    }
+
+    .img-animation {
+        animation-name: slit-in-horizontal;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+
+        /* shorthand
+		animation: slit-in-horizontal 1s linear 0s 1 normal none;*/
+    }
+
+    @keyframes slit-in-horizontal {
+
+        0% {
+            transform: translateZ(-800px) rotateX(90deg);
+            opacity: 0;
+        }
+
+        50% {
+            transform: translateZ(-160px) rotateX(87deg);
+            opacity: 1;
+        }
+
+        100% {
+            transform: translateZ(0) rotateX(0);
+        }
+    }
+
+    .text-animation {
+        animation-name: fade-in-top;
+        animation-duration: 0.5s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+    }
+
+    .text-animation2 {
+        animation-name: fade-in-top;
+        animation-duration: 0.8s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+    }
+
+    .text-animation3 {
+        animation-name: fade-in-top-form-bottom;
+        animation-duration: 1.1s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+    }
+
+    .text-animation4 {
+        animation-name: fade-in-top-form-bottom;
+        animation-duration: 1.4s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+    }
+
+
+    @keyframes fade-in-top {
+
+        0% {
+            transform: translateY(-50px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fade-in-top-form-bottom {
+
+        0% {
+            transform: translateY(50px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+
+    .cake-animation {
+        animation-name: scale-up-center;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+
+        /* shorthand
+		animation: scale-up-center 1s linear 0s 1 normal none;*/
+    }
+
+
+    @keyframes scale-up-center {
+
+        0% {
+            transform: scale(.2);
+            opacity: 0;
+        }
+
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+    .cake-animation-hidden {
+        animation-name: hidden-center;
+        animation-duration: 1s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        /* animation-fill-mode: none; */
+        animation-fill-mode: forwards;
+        /* shorthand
+		animation: scale-up-center 1s linear 0s 1 normal none;*/
+    }
+
+
+    @keyframes hidden-center {
+
+        0% {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        100% {
+            transform: scale(.2);
+            opacity: 0;
+        }
+    }
+
+    .popcat-hidden {
+        animation-name: popcat-animation-hidden;
+        animation-duration: .2s;
+        animation-timing-function: linear;
+        animation-delay: 0s;
+        animation-iteration-count: 1;
+        animation-direction: normal;
+        animation-fill-mode: none;
+    }
+
+    @keyframes popcat-animation-hidden {
+
+        0% {
+            transform: translatex(0);
+        }
+        
+        100% {
+            transform: translatex(200px);
+        }
+    }
+</style>
+<style>
+    .warp__placeholder {
+        position: absolute;
+        color: transparent;
+        font-size: 10px;
+    }
+
+    .warp {
+        display: block;
+        position: relative;
+        width: 493px;
+        height: 160px;
+        font-family: "K2D", serif;
+        margin-top: -130px;
+        z-index: 999;
+        font-weight: bolder;
+        font-size: 29px !important;
+
+    }
+
+    [class*='warp__'] {
+        display: block;
+        position: absolute;
+    }
+
+    .warp__0 {
+        transform-origin: 50% 29px;
+        transform: translate(34.0183px, -2.2429999999999986px) rotate(0.236083rad);
+    }
+
+    .warp__1 {
+        transform-origin: 50% 29px;
+        transform: translate(58.7234px, 2.5016px) rotate(0.189233rad);
+    }
+
+    .warp__2 {
+        transform-origin: 50% 29px;
+        transform: translate(78.9169px, 6.230899999999998px) rotate(0.160749rad);
+    }
+
+    .warp__3 {
+        transform-origin: 50% 29px;
+        transform: translate(100.9383px, 9.542299999999997px) rotate(0.138613rad);
+    }
+
+    .warp__4 {
+        transform-origin: 50% 29px;
+        transform: translate(122.90880000000001px, 12.215699999999998px) rotate(0.121485rad);
+    }
+
+    .warp__5 {
+        transform-origin: 50% 29px;
+        transform: translate(142.3399px, 14.3872px) rotate(0.107056rad);
+    }
+
+    .warp__6 {
+        transform-origin: 50% 29px;
+        transform: translate(160.779px, 16.4266px) rotate(0.091804rad);
+    }
+
+    .warp__7 {
+        transform-origin: 50% 29px;
+        transform: translate(182.9682px, 17.971899999999998px) rotate(0.077478rad);
+    }
+
+    .warp__8 {
+        transform-origin: 50% 29px;
+        transform: translate(197.2784px, 19.122px) rotate(0.062925rad);
+    }
+
+    .warp__9 {
+        transform-origin: 50% 29px;
+        transform: translate(215.4744px, 20.026699999999998px) rotate(0.044525rad);
+    }
+
+    .warp__10 {
+        transform-origin: 50% 29px;
+        transform: translate(230.762px, 20.602400000000003px) rotate(0.014161rad);
+    }
+
+    .warp__11 {
+        transform-origin: 50% 29px;
+        transform: translate(253.54250000000002px, 20.5289px) rotate(-0.016579rad);
+    }
+
+    .warp__12 {
+        transform-origin: 50% 29px;
+        transform: translate(274.828px, 19.9863px) rotate(-0.035036rad);
+    }
+
+    .warp__13 {
+        transform-origin: 50% 29px;
+        transform: translate(295.0252px, 19.1393px) rotate(-0.050838rad);
+    }
+
+    .warp__14 {
+        transform-origin: 50% 29px;
+        transform: translate(314.36px, 18.0377px) rotate(-0.06612rad);
+    }
+
+    .warp__15 {
+        transform-origin: 50% 29px;
+        transform: translate(332.5217px, 16.484699999999997px) rotate(-0.084246rad);
+    }
+
+    .warp__16 {
+        transform-origin: 50% 29px;
+        transform: translate(355.7125px, 14.313400000000001px) rotate(-0.107236rad);
+    }
+
+    .warp__17 {
+        transform-origin: 50% 29px;
+        transform: translate(377.6574px, 11.6588px) rotate(-0.134579rad);
+    }
+
+    .warp__18 {
+        transform-origin: 50% 29px;
+        transform: translate(399.4218px, 8.337400000000002px) rotate(-0.17006rad);
+    }
+
+    .warp__19 {
+        transform-origin: 50% 29px;
+        transform: translate(421.3974px, 4.790300000000002px) rotate(-0.211582rad);
+    }
+
+    .warp__20 {
+        transform-origin: 50% 29px;
+        transform: translate(436.3334px, 0.5553999999999988px) rotate(-0.268846rad);
+    }
+
+    .warp__21 {
+        transform-origin: 50% 29px;
+        transform: translate(455.8941px, -4.738399999999999px) rotate(-0.357942rad);
+    }
+
+    /* สไตล์ปุ่มกด */
+    #light-candle {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #7B020B;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        z-index: 100;
+    }
+
+    /* ไฟแช็ก */
+    .lighter {
+        position: absolute;
+        width: 20px;
+        height: 50px;
+        background-color: #555;
+        top: -150px;
+        left: 50%;
+        margin-left: -10px;
+        border-radius: 5px;
+        z-index: 10;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        rotate: -90deg;
+
+    }
+
+    .lighter:before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: 50%;
+        width: 10px;
+        height: 20px;
+        background-color: #ffcc00;
+        border-radius: 50%;
+        transform: translateX(-50%);
+        box-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+    }
+
+    /* Animation สำหรับไฟแช็กลอยเข้ามา */
+    @keyframes lighterMove {
+        0% {
+            top: -150px;
+            opacity: 0;
+        }
+
+        50% {
+            opacity: 1;
+        }
+
+        100% {
+            top: -40px;
+            opacity: 1;
+        }
+    }
+
+    /* เมื่อไฟแช็กลอยเข้ามา */
+    .lighter.lighter_active {
+        animation: lighterMove 1.5s ease-in-out forwards;
+    }
+
+    /* เมื่อไฟเทียนติด */
+    .flame.active {
+        display: block;
+        opacity: 1;
+    }
+
+    .message-box {
+        position: absolute;
+        bottom: 200px;
+        right: 200px;
+        width: auto;
+        max-width: 250dvw;
+        height: auto;
+        /* height: 60px; */
+        /* ความสูงคงที่ */
+        padding: 10px;
+        border: 2px solid #333;
+        border-radius: 10px;
+        background-color: #f0f0f0;
+        font-size: 18px;
+        white-space: wrap;
+        /* ไม่ให้ขึ้นบรรทัดใหม่ */
+        /* display: inline-block; */
+        /* ไม่ให้เกิด scroll */
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        /* ใส่เงาเพื่อความสวยงาม */
+        z-index: 99;
+        border-radius: 20px 20px 5px 20px;
+    }
+
+
+
+    .typing-indicator {
+        display: none;
+    }
+
+    .mymelody_mouse{
+        cursor: url('../luxlnw171041.github.io/assets/img/mymelody_blowing_32.png'), auto;
+        
+        /* cursor: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/1581299/profile/profile-80.jpg), auto; */
+    }
+
+    .smoke {
+    position: relative;
+    width: 100px;
+    height: 100px;
+}
+
+.smoke span {
+    position: absolute;
+  top: 50%;
+  left:calc(50% - 40px);
+    width: 10px;
+    height: 10px;
+    background: #fff;
+    border-radius: 50%;
+    animation: animateSmoke 2s linear 1;
+    opacity: 0;
+    filter: blur(5px);
+    animation-delay: calc(var(--i) * .1s);
+}
+
+@keyframes animateSmoke {
+    0% {
+        transform: translate(-50%, 0) scale(1);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -200px) scale(4);
+        opacity: 0;
+    }
+}
 </style>
 
 <body class="w-full">
-    <div class="flex justify-center items-center flex-wrap-reverse">
-        <div class="me-15">
-            <h1 class="happy-birth-day-na text-pretty ">HAPPY <br>BIRTHDAY!x</h1>
-            <p class="my-15 k2d text-[18px]">สุขสันต์วันเกิดอายุ 18 ปีนะครับ</p>
-            <button>ต่อไป</button>
+
+    <div class="container-star ">
+
+        <img src="assets/img/star1.png" class=" blur-md  max-w-[100px] w-full absolute top-[25%] left-[10%] z-1 ">
+
+        <img src="assets/img/star1.png" class=" blur-md  max-w-[100px] w-full absolute top-[90%] left-[5%] z-1 ">
+
+        <img src="assets/img/star3.png" class=" blur-md  max-w-[100px] w-full absolute top-[7.5%] left-[60%] z-1 ">
+
+
+        <img src="assets/img/star2.png" class=" blur-md  max-w-[100px] w-full absolute top-[80%] left-[80%] z-1 ">
+
+
+        <img src="assets/img/star3.png" class=" blur-md  max-w-[100px] w-full absolute top-[70%] left-[30%] z-1 ">
+    </div>
+
+
+    <div class="flex justify-center items-center flex-wrap-reverse happy-birth-day-section z-10">
+        <div class="me-25 group-happy-birth-day  ">
+            <!-- <p class="text-animation happy-birth-day-na text-pretty drop-shadow-lg mb-5"> <span></span>HAPPY <br>BIRTHDAY!</p> -->
+            <p class="drop-shadow-2xl text-animation happy-birth-day-na text-pretty drop-shadow-lg mb-5 z-index">HAPPY
+            </p>
+            <p class="drop-shadow-2xl text-animation2 happy-birth-day-na text-pretty drop-shadow-lg mb-5 z-index">
+                BIRTHDAY</p>
+            <!-- <p class="my-15 k2d text-[18px]">สุขสันต์วันเกิดอายุ 18 ปีนะครับ</p> -->
+            <button onclick="Birthday_cake()"
+                class="drop-shadow-2xl text-animation3 btn-next btn px-10 py-4 me-5">ไปกันต่อออ</button>
+            <button class="drop-shadow-2xl btn-nope btn px-10 py-4 text-animation4" id="runaway-btn">ไม่ไป!!</button>
 
         </div>
-        <div>
-            <img src="assets/img/img_start.png" class="user-img  max-w-[500px] w-full" alt="user avatar">
+        <div class="relative drop-shadow-2xl">
+            <img src="assets/img/img_start.png"
+                class="img-animation  mb-15  max-w-[500px] w-full drop-shadow-lg z-50 relative">
+            <img src="assets/img/melody.png"
+                class="melody mb-15  max-w-[100px] w-full absolute top-[-7.5%] left-[38%] z-10 hidden">
         </div>
     </div>
 
@@ -127,30 +853,347 @@
     <!-- <h1 class="text-3xl font-bold underline">
         Hello world!
       </h1> -->
-    <div class="cake hidden w-full">
-        <div class="plate"></div>
-        <div class="layer"></div>
-        <div class="icing"></div>
-        <div class="candles">
-            <div class="candle"></div>
-            <div class="candle"></div>
-            <div class="candle"></div>
+    <div class="section-cake hidden">
+
+
+        <div class="cake  cake-animation">
+            <div class="plate"></div>
+            <div class="layer layer-bottom"></div>
+            <div class="layer layer-middle"></div>
+            <div class="layer layer-top"></div>
+            <div class="icing"></div>
+            <div class="drip drip1"></div>
+            <div class="drip drip2"></div>
+            <div class="drip drip3"></div>
+            <div class="candle">
+                <div class="flame hidden"></div>
+                <div class="wick"></div>
+                <div class="smoke hidden">
+                    <span style="--i:1"></span>
+                    <span style="--i:2"></span>
+                    <span style="--i:3"></span>
+                    <span style="--i:4"></span>
+                    <span style="--i:5"></span>
+                </div>
+            </div>
+
+            <div class="warp " style="transform: rotateX(45deg);" aria-labelledby="warp-label">
+
+
+                <span aria-role="presentation" class="top-[-100px]">
+                    <span class="warp__0">
+                        H
+                    </span>
+                    <span class="warp__1">
+                        a
+                    </span>
+                    <span class="warp__2">
+                        p
+                    </span>
+                    <span class="warp__3">
+                        p
+                    </span>
+                    <span class="warp__4">
+                        y
+                    </span>
+                    <span class="warp__5">
+
+                    </span>
+                    <span class="warp__6">
+                        B
+                    </span>
+                    <span class="warp__7">
+                        i
+                    </span>
+                    <span class="warp__8">
+                        r
+                    </span>
+                    <span class="warp__9">
+                        t
+                    </span>
+                    <span class="warp__10">
+                        h
+                    </span>
+                    <span class="warp__11">
+                        d
+                    </span>
+                    <span class="warp__12">
+                        a
+                    </span>
+                    <span class="warp__13">
+                        y
+                    </span>
+                    <span class="warp__14">
+
+                    </span>
+                    <span class="warp__15">
+                        k
+                    </span>
+                    <span class="warp__16">
+                        h
+                    </span>
+                    <span class="warp__17">
+                        u
+                    </span>
+                    <span class="warp__18">
+                        n
+                    </span>
+                    <span class="warp__19">
+                        t
+                    </span>
+                    <span class="warp__20">
+                        a
+                    </span>
+                    <span class="warp__21">
+                        i
+                    </span>
+                </span>
+            </div>
+            <!-- ไฟแช็ก -->
+            <div class="lighter hidden"></div>
+        </div>
+        <style>
+
+        </style>
+        <div class="popcat hidden popcat-animation absolute bottom-[10px] right-[10px] w-full">
+
+            <div id="messageBox" class="message-box hidden"></div>
+            <div id="typingIndicator" class="typing-indicator">...</div>
+
+            <script>
+                function typeMessage(message, speed, delay) {
+                    return new Promise((resolve) => {
+                        var messageBox = document.getElementById("messageBox");
+                        const typingIndicator = document.getElementById("typingIndicator");
+                        let index = 0;
+
+                        messageBox.textContent = "";  // ล้างข้อความเก่าที่เคยแสดง
+                        typingIndicator.style.display = "block";  // แสดงตัวบ่งชี้การพิมพ์
+
+                        const typingInterval = setInterval(() => {
+                            if (index < message.length) {
+                                messageBox.textContent += message[index];  // เพิ่มตัวอักษรทีละตัว
+                                index++;
+                            } else {
+                                clearInterval(typingInterval);  // หยุดการพิมพ์เมื่อครบข้อความ
+                                typingIndicator.style.display = "none";  // ซ่อนตัวบ่งชี้การพิมพ์
+
+                                // ดีเลย์ตามเวลาที่ระบุหลังจากพิมพ์เสร็จ
+                                setTimeout(() => {
+                                    resolve();  // ส่งสัญญาณว่าพิมพ์และดีเลย์เสร็จแล้ว
+                                }, delay);
+                            }
+                        }, speed);  // ความเร็วในการพิมพ์
+                    });
+                }
+            </script>
+
+            <img id="popcat1" src="assets/img/popcat-1.png" alt=""
+                class="absolute bottom-[10px] right-[10px] w-[200px] max-w-[100dvh] z-50">
+            <img id="popcat2" src="assets/img/popcat-2.png" alt=""
+                class="absolute bottom-[10px] right-[10px] w-[200px] max-w-[100dvh] z-50 hidden">
         </div>
     </div>
+    <!-- ปุ่มกด -->
+    <!-- <button id="light-candle">จุดเทียน</button>
+    <button onclick="swapImages(5)">จุดเทียน</button> -->
+
+    <script>
+
+        function swapImages(seconds) {
+            var popcat1 = document.getElementById('popcat1');
+            const popcat2 = document.getElementById('popcat2');
+
+            let isPopcat1Visible = true;
+
+            const interval = setInterval(() => {
+                if (isPopcat1Visible) {
+                    popcat1.classList.add('hidden');
+                    popcat2.classList.remove('hidden');
+                } else {
+                    popcat1.classList.remove('hidden');
+                    popcat2.classList.add('hidden');
+                }
+                isPopcat1Visible = !isPopcat1Visible;
+            }, 100);
+
+            // หยุดหลังจากเวลาที่กำหนด และแสดง popcat1 เท่านั้น
+            setTimeout(() => {
+                clearInterval(interval);
+                popcat1.classList.remove('hidden');
+                popcat2.classList.add('hidden');
+            }, seconds * 1000);
+        }
+
+        // เรียกใช้ฟังก์ชันพร้อมกำหนดจำนวนวินาที เช่น 5 วินาที
+
+        function light_candle() {
+            var lighter = document.querySelector('.lighter');
+            var flame = document.querySelector('.flame');
+            const wick = document.querySelector('.flame');
+
+            // แสดงไฟแช็กและเริ่ม animation
+            lighter.classList.remove('hidden');
+            lighter.classList.add('lighter_active');
+
+            // รอให้ไฟแช็กลอยเข้ามาจุดไฟ
+            setTimeout(() => {
+                lighter.classList.add('hidden'); // ซ่อนไฟแช็ก
+                flame.classList.remove('hidden'); // แสดงไฟเทียน
+                flame.classList.add('active'); // เริ่ม animation ไฟเทียน
+                wick.classList.add('hidden');
+            }, 1500); // รอ 1.5 วินาที
+        }
+
+    </script>
+
+    <!-- 
+    <div class="absolute bottom-[2%] right-[2%] max-w-[800px]">
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2Ch7LmS7r2Gy2kc64wv3Bz?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div> -->
 </body>
 
 </html>
 
 <script>
-    // คุณสามารถเพิ่มการเคลื่อนไหวหรือเอฟเฟกต์ให้กับเทียนได้ที่นี่
-    const candles = document.querySelectorAll('.candle');
+    var popcat = document.querySelector('.popcat');
+    var lighter_active = document.querySelector('.lighter_active');
+    var flame = document.querySelector('.flame');
+    var cake = document.querySelector('.cake');
 
-    candles.forEach(candle => {
-        candle.addEventListener('click', () => {
-            candle.style.opacity = '0';
-            setTimeout(() => {
-                candle.style.display = 'none';
-            }, 500);
-        });
+    document.addEventListener("DOMContentLoaded", function (event) {
+        console.log('3/1/2025 วันนี้เริ่มโปรเจคเซอร์ไพรส์วันเกิด เลทโก้วววววววว!!')
+        setTimeout(() => {
+            document.querySelector('.melody').classList.add("melody-animation");
+            document.querySelector('.melody').classList.remove("hidden");
+        }, 2000);
     });
+
+
+    function Birthday_cake() {
+        console.log('2/1/2025 ผมว่าผมใส่เหมือนผมคุยกับคุณไปด้วยดีกว่า5555');
+
+        document.querySelector('.happy-birth-day-section').classList.add("hidden");
+        document.body.style.backgroundColor = "black";
+        document.querySelector('.container-star').classList.add("hidden");
+        document.querySelector('.section-cake').classList.remove("hidden");
+
+        setTimeout(() => {
+            document.querySelector('.cake').classList.remove("hidden");
+        }, 3000);
+
+        setTimeout(() => {
+            popcat.classList.remove("hidden");
+            popcat.addEventListener("animationend", () => {
+                setTimeout(() => {
+                    messageBox.classList.remove('hidden');
+
+                    swapImages(1.2);
+                    typeMessage('เดี๋ยวก่อน!!', 100, 2000).then(() => {
+
+                        typeMessage('เดี๋ยวผมจุดเทียนให้ก่อน', 100, 1000).then(() => {
+                            light_candle();
+                            swapImages(2.5);
+
+                            setTimeout(() => {
+                                swapImages(2.8);
+                                typeMessage('เอาล่ะ ขอพรสิ ให้เวลา 10 วิ', 100, 10000).then(() => {
+                                    swapImages(5);
+                                    flame.classList.add('mymelody_mouse');
+                                    typeMessage('ถ้าขอพรเสร็จแล้วอย่าลืมเป่าเทียนด้วยล่ะ (กดตรงไฟ)', 100, 0).then(() => {
+                                        console.log('2/1/2025 รูป mymelody เป่าเทียนไม่มีเลยอ่ะะ ผมทำเองก็ได้ อิอิ');
+
+                                        // คุณสามารถเพิ่มการเคลื่อนไหวหรือเอฟเฟกต์ให้กับเทียนได้ที่นี่
+                                        const candles = document.querySelectorAll('.candle');
+                                        const smoke = document.querySelector('.smoke');
+                                        
+                                        candles.forEach(candle => {
+                                            candle.addEventListener('click', () => {
+                                                flame.style.opacity = '0';
+                                                smoke.classList.remove('hidden');
+                                                console.log('3/1/2025 ควันไม่ค่อยสวยเท่าไหร่เลยแหะ');
+                                                
+                                                smoke.classList.remove('hidden');
+
+                                                smoke.addEventListener("animationend", () => {
+                                                    console.log('4/1/2025 22.00 ไม่มีไรวันนี้ไม่ได้คุยเลย คิดถึงจังงง')
+
+                                                    cake.classList.add("cake-animation-hidden");
+                                                    // popcat1.classList.add("popcat-hidden");
+                                                    
+                                                    setTimeout(() => {
+                                                            cake.classList.add("hidden");
+                                                            document.querySelector('.section-cake').classList.add("hidden");
+
+                                                            // popcat1.style.display = 'none';
+
+                                                    }, 1000);
+                                                    // cake_animation_hide.addEventListener("animationend", () => {
+                                                    // });
+
+                                                    // messageBox.classList.add('hidden');
+                                                });
+                                                // setTimeout(() => {
+                                                //     candle.style.display = 'none';
+                                                // }, 500);
+                                            });
+                                        });
+                                    });
+                                });
+                            }, 2000);
+                        });
+
+                    });
+                }, 500);
+            });
+        }, 5000);
+
+
+    }
+
+
+
+
+    const button = document.getElementById('runaway-btn');
+
+    button.addEventListener('mouseenter', (e) => {
+        moveButtonAway(e);
+    });
+
+    button.addEventListener('mousemove', (e) => {
+        moveButtonAway(e);
+    });
+
+    function moveButtonAway(e) {
+        const moveDistance = 150;
+
+        const buttonRect = button.getBoundingClientRect();
+        const buttonCenterX = buttonRect.left + buttonRect.width / 2;
+        const buttonCenterY = buttonRect.top + buttonRect.height / 2;
+
+        const mouseX = e.clientX;
+        const mouseY = e.clientY;
+
+        const deltaX = mouseX - buttonCenterX;
+        const deltaY = mouseY - buttonCenterY;
+
+        let newX = buttonRect.left - (deltaX / Math.hypot(deltaX, deltaY)) * moveDistance;
+        let newY = buttonRect.top - (deltaY / Math.hypot(deltaX, deltaY)) * moveDistance;
+
+        const maxX = window.innerWidth - buttonRect.width;
+        const maxY = window.innerHeight - buttonRect.height;
+
+        if (newX <= 0 || newX >= maxX || newY <= 0 || newY >= maxY) {
+            newX = Math.max(0, Math.min(newX, maxX));
+            newY = Math.max(0, Math.min(newY, maxY));
+
+            if (newX <= 0) newX += moveDistance;
+            if (newX >= maxX) newX -= moveDistance;
+            if (newY <= 0) newY += moveDistance;
+            if (newY >= maxY) newY -= moveDistance;
+        }
+
+        button.style.left = `${newX}px`;
+        button.style.top = `${newY}px`;
+    }
 </script>
